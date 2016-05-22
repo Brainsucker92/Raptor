@@ -176,21 +176,26 @@ public class ChatUtils {
 	}
 
 	public static String getUrl(String text) {
-		String strippedText = text == null ? ""
-				: StringUtils.removeEnd(StringUtils.replaceChars(text, "()'\"<>,#", ""), ".");
+		String result = null;
+		if (StringUtils.isNotBlank(text)) {
 
-		if (strippedText.endsWith(";")) {
-			strippedText = strippedText.substring(0, strippedText.length() - 1);
-		}
-		if ((strippedText.startsWith("http://") || strippedText.startsWith("https://"))) {
-			return strippedText;
+			while (text.length() > 0 && StringUtils.contains("(<#/", text.charAt(0))) {
+				text = text.substring(1);
+			}
 
-		} else if ((strippedText.endsWith(".com") || strippedText.endsWith(".org") || strippedText.endsWith(".gov")
-				|| strippedText.endsWith(".edu") || strippedText.startsWith("www."))
-				|| urlPattern.matcher(strippedText).matches()) {
-			return "http://" + strippedText;
+			while (text.length() > 0 && StringUtils.contains(")>;", text.charAt(text.length() - 1))) {
+				text = text.substring(0, text.length() - 1);
+			}
+
+			if ((text.startsWith("http://") || text.startsWith("https://"))) {
+				result = text;
+
+			} else if ((text.endsWith(".com") || text.endsWith(".org") || text.endsWith(".gov") || text.endsWith(".edu")
+					|| text.startsWith("www.")) || urlPattern.matcher(text).matches()) {
+				result = "http://" + text;
+			}
 		}
-		return null;
+		return result;
 	}
 
 	/**
