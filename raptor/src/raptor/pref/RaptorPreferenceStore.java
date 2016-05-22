@@ -386,8 +386,8 @@ public class RaptorPreferenceStore extends PreferenceStore implements Preference
 		setDefault(ACTION_SEPARATOR_SEQUENCE, 400);
 
 		// App settings.
-		setDefault(APP_NAME, "Raptor 1.0");
-		putValue("app-version", "1.0");
+		setDefault(APP_NAME, "Raptor 1.1");
+		putValue("app-version", "1.1");
 		setDefault(APP_IS_SHOWING_CHESS_PIECE_UNICODE_CHARS, !OSUtils.isLikelyWindowsXP());
 		setDefault(APP_SASH_WIDTH, 8);
 		setDefault(APP_HOME_URL, "https://raptor-fics-interface.github.io/Raptor/");
