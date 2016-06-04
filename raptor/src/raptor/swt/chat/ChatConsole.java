@@ -187,7 +187,7 @@ public class ChatConsole extends Composite implements PreferenceKeys {
 			}
 
 		} else {
-			if (pingLabel != null) {
+			if (pingLabel != null && southControlsComposite != null && !southControlsComposite.isDisposed()) {
 				if (LOG.isDebugEnabled())
 					LOG.debug("Disposing of ping controls...");
 				pingLabel.dispose();
