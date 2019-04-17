@@ -21,7 +21,7 @@ public class B1Parser implements GameConstants {
 	public static final String B1_START = "<b1>";
 
 	public static int[] buildPieceHoldingsArray(String s) {
-		int[] result = new int[6];
+		int[] result = new int[7];
 
 		for (int i = 0; i < s.length(); i++) {
 			switch (s.charAt(i)) {
