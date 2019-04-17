@@ -2,7 +2,6 @@
 BASEDIR=`dirname $0`
 cd $BASEDIR
 exec java \
--d64 \
 -XstartOnFirstThread \
 -Xdock:icon=../Resources/Raptor.icns \
 -Xms40m \
